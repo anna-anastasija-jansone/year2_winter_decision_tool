@@ -98,5 +98,9 @@ function updateValidation() {
 }
 
 function update() { const global = globalInputs(); const a = calculateOption("A", global), b = calculateOption("B", global); renderResults("A", a); renderResults("B", b); updateComparison(a, b); updateValidation(); }
-document.querySelectorAll("input, select, textarea").forEach((element) => element.addEventListener("input", update));
+document.querySelectorAll("input, select, textarea").forEach((element) => {
+  element.addEventListener("input", update);
+  element.addEventListener("change", update);
+});
+document.getElementById("updateCalculations").addEventListener("click", update);
 update();
