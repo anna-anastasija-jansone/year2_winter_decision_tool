@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A Year 2 Winter decision tool for Pork and Garlic Ice Cream Co." />
+    <title>Year 2 Winter Decision Tool</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f4e5f'/%3E%3Cpath d='M20 42c0-11 5-20 12-20s12 9 12 20' fill='%23fff4df'/%3E%3Cpath d='M18 44h28' stroke='%23e6b44d' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="site-header">
+        <div>
+          <p class="eyebrow">Pork and Garlic Ice Cream Co.</p>
+          <h1>Year 2 Winter Decision Tool</h1>
+        </div>
+        <div class="status-chip"><span></span> First version - Year 2 values are estimates</div>
+      </header>
+
+      <section class="intro-grid" aria-label="How to use this tool">
+        <div>
+          <h2>Compare a Winter plan before class</h2>
+          <p>Change the amber fields in Option A and Option B. “Possible actual sales” is deliberately separate from the request because the trainer may allocate less than you ask for.</p>
+        </div>
+        <div class="forecast-card">
+          <span>Known Year 2 Winter market forecast</span>
+          <strong>410,000 ice creams</strong>
+          <small>Forecast only. It is not a promise of sales.</small>
+        </div>
+      </section>
+
+      <section class="card carry-in" aria-labelledby="carry-in-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Starting point</p>
+            <h2 id="carry-in-title">Current Year 1 position</h2>
+          </div>
+          <p class="muted">These are Winter figures for now. Update them after later Year 1 seasons.</p>
+        </div>
+        <div class="input-grid compact">
+          <label>Opening cash for Year 2 <input id="openingCash" type="number" value="31700" min="0" step="1" /></label>
+          <label>Year 1 profit so far (Winter only) <input id="year1Profit" type="number" value="-75175" step="1" /></label>
+          <label>Unused tax-loss pool <input id="taxLossPool" type="number" value="75175" min="0" step="1" /></label>
+          <label>Unpaid loan balance <input id="unpaidLoan" type="number" value="37500" min="0" step="1" /></label>
+          <label>Existing-loan principal due <input id="existingPrincipal" type="number" value="12500" min="0" step="1" /></label>
+          <label>Existing-loan interest rate <input id="existingInterestRate" type="number" value="10" min="0" step="0.1" /><span class="unit">%</span></label>
+        </div>
+        <div class="machine-note"><strong>Owned machine now recorded:</strong> Machine 1 · 72,000 units/season · 7 seasons of life remaining after Winter. Update this after each Year 1 season.</div>
+      </section>
+
+      <section class="card assumptions" aria-labelledby="assumption-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Editable estimates</p>
+            <h2 id="assumption-title">Year 2 working assumptions</h2>
+          </div>
+          <p class="muted">Replace these once the trainer gives confirmed Year 2 rules, premises, and machine choices.</p>
+        </div>
+        <div class="input-grid compact">
+          <label>Sales price / unit <input id="salesPrice" type="number" value="2" min="0" step="0.1" /></label>
+          <label>Milk price / ton <input id="milkPrice" type="number" value="20000" min="0" step="1" /></label>
+          <label>Yield / ton <input id="milkYield" type="number" value="20000" min="0" step="1" /></label>
+          <label>Fixed salaries <input id="fixedSalaries" type="number" value="10000" min="0" step="1" /></label>
+          <label>Bonus rate <input id="bonusRate" type="number" value="5" min="0" step="0.1" /><span class="unit">%</span></label>
+          <label>Game tax rate <input id="taxRate" type="number" value="10" min="0" step="0.1" /><span class="unit">%</span></label>
+          <label>New-loan interest rate <input id="newInterestRate" type="number" value="10" min="0" step="0.1" /><span class="unit">%</span></label>
+        </div>
+      </section>
+
+      <section class="options-section" aria-labelledby="options-title">
+        <div class="section-heading wide-heading">
+          <div>
+            <p class="eyebrow">Decision comparison</p>
+            <h2 id="options-title">Two possible Year 2 Winter options</h2>
+          </div>
+          <label class="recommend-picker">My recommendation
+            <select id="recommendedOption"><option value="a">Option A</option><option value="b">Option B</option></select>
+          </label>
+        </div>
+        <div class="option-grid">
+          <article class="option-card" data-option="a">
+            <div class="option-topline"><span class="option-tag">Option A</span><input class="option-name" id="nameA" value="Cautious plan" aria-label="Option A name" /></div>
+            <div class="option-inputs">
+              <label>Premise used (estimate) <input id="premiseA" value="Premise D" /></label>
+              <label>Planned production <input id="productionA" type="number" value="40000" min="0" step="1" /></label>
+              <label>Milk purchased (tons) <input id="milkTonsA" type="number" value="2" min="0" step="0.1" /></label>
+              <label>Sales request <input id="requestA" type="number" value="40000" min="0" step="10000" /></label>
+              <label>Possible actual sales <input id="actualSalesA" type="number" value="30000" min="0" step="1" /></label>
+              <label>Market investment <input id="marketInvestmentA" type="number" value="5000" min="0" step="1" /></label>
+              <label>Premise rent <input id="rentA" type="number" value="17000" min="0" step="1" /></label>
+              <label>Transport / sold unit <input id="transportRateA" type="number" value="0.1" min="0" step="0.1" /></label>
+              <label>Machine capacity used <input id="capacityA" type="number" value="72000" min="0" step="1" /></label>
+              <label>Machine maintenance <input id="maintenanceA" type="number" value="1800" min="0" step="1" /></label>
+              <label>Machine depreciation <input id="depreciationA" type="number" value="4375" min="0" step="1" /></label>
+              <label>New machine purchase <input id="machinePurchaseA" type="number" value="0" min="0" step="1" /></label>
+              <label>New borrowing <input id="borrowingA" type="number" value="20000" min="0" step="1" /></label>
+              <label>New loan term (seasons) <input id="loanTermA" type="number" value="4" min="1" max="8" step="1" /></label>
+            </div>
+            <div class="result-panel" id="resultsA"></div>
+          </article>
+
+          <article class="option-card" data-option="b">
+            <div class="option-topline"><span class="option-tag">Option B</span><input class="option-name" id="nameB" value="Growth plan" aria-label="Option B name" /></div>
+            <div class="option-inputs">
+              <label>Premise used (estimate) <input id="premiseB" value="Premise D" /></label>
+              <label>Planned production <input id="productionB" type="number" value="70000" min="0" step="1" /></label>
+              <label>Milk purchased (tons) <input id="milkTonsB" type="number" value="3.5" min="0" step="0.1" /></label>
+              <label>Sales request <input id="requestB" type="number" value="70000" min="0" step="10000" /></label>
+              <label>Possible actual sales <input id="actualSalesB" type="number" value="50000" min="0" step="1" /></label>
+              <label>Market investment <input id="marketInvestmentB" type="number" value="9000" min="0" step="1" /></label>
+              <label>Premise rent <input id="rentB" type="number" value="17000" min="0" step="1" /></label>
+              <label>Transport / sold unit <input id="transportRateB" type="number" value="0.1" min="0" step="0.1" /></label>
+              <label>Machine capacity used <input id="capacityB" type="number" value="72000" min="0" step="1" /></label>
+              <label>Machine maintenance <input id="maintenanceB" type="number" value="1800" min="0" step="1" /></label>
+              <label>Machine depreciation <input id="depreciationB" type="number" value="4375" min="0" step="1" /></label>
+              <label>New machine purchase <input id="machinePurchaseB" type="number" value="0" min="0" step="1" /></label>
+              <label>New borrowing <input id="borrowingB" type="number" value="50000" min="0" step="1" /></label>
+              <label>New loan term (seasons) <input id="loanTermB" type="number" value="4" min="1" max="8" step="1" /></label>
+            </div>
+            <div class="result-panel" id="resultsB"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="card comparison" aria-labelledby="comparison-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">Decision summary</p><h2 id="comparison-title">What changes between the options?</h2></div>
+        </div>
+        <div id="comparisonText" class="comparison-text"></div>
+        <label class="assumption-field">Most important assumption for my recommendation
+          <textarea id="importantAssumption" rows="3">The trainer allocates enough actual sales to avoid most planned production spoiling.</textarea>
+        </label>
+        <div id="recommendation" class="recommendation"></div>
+      </section>
+
+      <section class="card validation" aria-labelledby="validation-title">
+        <div class="section-heading"><div><p class="eyebrow">Required check</p><h2 id="validation-title">Year 1 Winter reconciliation</h2></div><p class="muted">The first version uses your known Winter result.</p></div>
+        <div class="validation-grid">
+          <div><span>Expected Winter net loss</span><strong>Sh 75,175 loss</strong></div>
+          <div><span>Expected Winter closing cash</span><strong>Sh 31,700</strong></div>
+          <div><span>Calculated Winter net profit</span><strong id="winterProfitCalculated"></strong></div>
+          <div><span>Calculated Winter closing cash</span><strong id="winterCashCalculated"></strong></div>
+          <div><span>Reconciliation status</span><strong id="carryInStatus">Matches Winter figures</strong></div>
+        </div>
+        <details class="financial-details"><summary>Year 1 Winter values entered for the check</summary>
+          <div class="input-grid compact history-inputs">
+            <label>Starting cash <input id="winterStartingCash" type="number" value="100000" /></label><label>Loan received <input id="winterLoan" type="number" value="50000" /></label><label>Machine purchase <input id="winterMachinePurchase" type="number" value="35000" /></label>
+            <label>Milk cost <input id="winterMilkCost" type="number" value="70000" /></label><label>Sales revenue <input id="winterSalesRevenue" type="number" value="40000" /></label><label>Market investment <input id="winterMarketInvestment" type="number" value="5000" /></label>
+            <label>Premise rent <input id="winterRent" type="number" value="17000" /></label><label>Maintenance <input id="winterMaintenance" type="number" value="1800" /></label><label>Transport <input id="winterTransport" type="number" value="2000" /></label>
+            <label>Fixed salaries <input id="winterSalaries" type="number" value="10000" /></label><label>Loan principal <input id="winterPrincipal" type="number" value="12500" /></label><label>Loan interest <input id="winterInterest" type="number" value="5000" /></label>
+            <label>Depreciation <input id="winterDepreciation" type="number" value="4375" /></label><label>Game tax <input id="winterTax" type="number" value="0" /></label>
+          </div>
+        </details>
+      </section>
+    </main>
+    <script src="app.js"></script>
+  </body>
+</html>
