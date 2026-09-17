@@ -92,7 +92,7 @@ function updateValidation() {
   const cash = historical.start + historical.loan + historical.sales - historical.machine - historical.milk - historical.market - historical.rent - historical.maintenance - historical.transport - historical.salaries - historical.principal - historical.interest - historical.tax;
   document.getElementById("winterProfitCalculated").textContent = money.format(profit);
   document.getElementById("winterCashCalculated").textContent = money.format(cash);
-  const matches = Math.round(profit) === -75175 && Math.round(cash) === 31700;
+  const matches = Math.round(profit) === -75175 && Math.round(cash) === 37950;
   status.textContent = matches ? "Matches Winter figures" : "Check the Winter inputs";
   status.style.color = matches ? "#1d6a4d" : "#a86d14";
 }
